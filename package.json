@@ -1,6 +1,6 @@
 {
   "name": "mapbox-style-downloader",
-  "version": "2.0.2",
+  "version": "2.5.2",
   "description": "Download Mapbox styles, sprites, glyphs (fonts) and tiles for offline usage",
   "main": "index.js",
   "bin": {
@@ -23,22 +23,26 @@
   "dependencies": {
     "@mapbox/tilejson": "^1.1.0",
     "@mapbox/tilelive": "^6.0.0",
+    "asar": "^0.14.6",
     "d3-queue": "^3.0.7",
-    "debug": "^3.1.0",
-    "ecstatic": "^3.2.0",
-    "fs-extra": "^5.0.0",
+    "debug": "^3.2.6",
+    "ecstatic": "^3.3.0",
+    "fs-extra": "^7.0.0",
     "getport": "^0.1.0",
+    "mapbox-gl": "^1.4.1",
     "mkdirp": "^0.5.1",
     "object-assign": "^4.1.1",
     "pump": "^3.0.0",
-    "request": "^2.85.0",
+    "request": "^2.88.0",
+    "rimraf": "^2.6.3",
     "sanitize-filename": "^1.6.1",
     "tilelive-file": "0.0.3",
     "tilelive-streaming": "^0.7.7",
     "traverse": "^0.6.6",
-    "yargs-parser": "^10.0.0"
+    "update-notifier": "^2.5.0",
+    "yargs-parser": "^10.1.0"
   },
   "devDependencies": {
-    "dependency-check": "^3.1.0"
+    "dependency-check": "^3.3.0"
   }
 }

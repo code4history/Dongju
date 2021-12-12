@@ -1,12 +1,20 @@
 #!/usr/bin/env node
 
 const path = require('path')
+const updateNotifier = require('update-notifier')
+const pkg = require('../package.json')
 
 const download = require('../').download
 const serve = require('../').serve
 
+const notifier = updateNotifier({
+  pkg: pkg
+})
+notifier.notify()
+
 const argv = require('yargs-parser')(process.argv.slice(2), {
   alias: {
+    a: 'asar',
     p: 'port',
     t: 'token',
     z: 'minzoom',
@@ -16,6 +24,7 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
     u: 'minutf',
     U: 'maxutf'
   },
+  boolean: ['asar', 'style', 'glyphs', 'sprites', 'tiles'],
   string: [
     'bounds',
     'token'
@@ -49,6 +58,7 @@ if (cmd === 'download') {
   console.log(`USAGE: mapbox-style <command> [options]
 
   download STYLE_URL [options]
+    -a, --asar          export tile sources as asar archives
     -b, --bounds        bounding box in the form of "lat, lon, lat, lon"
     -o, --output        the output path for the styles
     -z, --minzoom       the minimum zoom for tile downloading [1,16]
@@ -56,6 +66,17 @@ if (cmd === 'download') {
     -t, --token         your MapBox API token
     -u, --minutf        minimum UTF-8 char code to download glyphs for
     -U, --maxutf        maximum UTF-8 char code to download glyphs for
+    --style             only download the style.json
+    --glyphs            download glyphs
+    --tiles             download tiles
+    --sprites           download sprites
+  
+  By default all resources (style.json, glyphs, tiles and sprites) are downloaded.
+  Passing any of the --style, --glyphs, --tiles, --sprites options will result
+  in only the resources specified being downloaded. This can be helpful if, for
+  example, only the style has changes, but the tile data remains the same, so
+  there is no need to download it a second time. Note that the style.json is
+  _always_ downloaded, since it is needed to get the URLs for other resources.
 
   serve
     -p, --port          the port to use for the server

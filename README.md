@@ -12,10 +12,15 @@ To download, you need to get a MapBox API Token. You can get one by signing up
 for mapbox and requesting a public key from them. It is free. It should start
 with `pk`. This is your `token` to be used with mapbox-style-downloader.
 
+To find out the coordinates for the bounding box of the area you'll be downloading
+the [boundingbox](https://boundingbox.klokantech.com/) online tool can be used.
+Use the `CSV` Copy & Paste option to display the coordinates in the correct format.
+
 To download, use the `download` command like so:
 
 ```sh
 mapbox-style download mapbox://styles/mapbox/streets-v9 \
+  --asar \
   --token='MAPBOX_API_TOKEN' \
   -o styledir \
   -z 8 \
@@ -24,7 +29,7 @@ mapbox-style download mapbox://styles/mapbox/streets-v9 \
 ```
 
 You need to provide a Mapbox Style URL as the first argument to `download`.
-There are many of them, but this is an example: `mapbox://styles/mapbox/streets-v9`. You can see the full list on the MapBox website.
+There are many of them, but this is an example: `mapbox://styles/mapbox/streets-v9`. You can see the full list on the [MapBox website](https://docs.mapbox.com/api/maps/styles/).
 
 ## Be careful!
 
@@ -51,6 +56,7 @@ sprites, and glyphs you just downloaded.
 USAGE: mapbox-style <command> [options]
 
   download STYLE_URL [options]
+    -a, --asar          export tile sources as asar archives
     -b, --bounds        bounding box in the form of "lat, lon, lat, lon"
     -o, --output        the output path for the styles
     -z, --minzoom       the minimum zoom for tile downloading [1,16]
@@ -58,6 +64,17 @@ USAGE: mapbox-style <command> [options]
     -t, --token         your MapBox API token
     -u, --minutf        minimum UTF-8 char code to download glyphs for
     -U, --maxutf        maximum UTF-8 char code to download glyphs for
+    --style             only download the style.json
+    --glyphs            download glyphs
+    --tiles             download tiles
+    --sprites           download sprites
+  
+  By default all resources (style.json, glyphs, tiles and sprites) are downloaded.
+  Passing any of the --style, --glyphs, --tiles, --sprites options will result
+  in only the resources specified being downloaded. This can be helpful if, for
+  example, only the style has changes, but the tile data remains the same, so
+  there is no need to download it a second time. Note that the style.json is
+  _always_ downloaded, since it is needed to get the URLs for other resources.
 
   serve
     -p, --port          the port to use for the server
