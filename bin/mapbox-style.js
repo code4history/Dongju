@@ -6,6 +6,7 @@ const pkg = require('../package.json')
 
 const download = require('../').download
 const serve = require('../').serve
+const isMapboxURL = require('../').isMapboxURL
 
 const notifier = updateNotifier({
   pkg: pkg
@@ -46,7 +47,7 @@ if (cmd === 'download') {
   }
   const outDir = path.resolve(process.cwd(), argv.o)
   const accessToken = argv.token || process.env.MAPBOX_TOKEN
-  if (!accessToken) {
+  if (isMapboxURL(styleUrl) && !accessToken) {
     onError(new Error('missing Mapbox access token, please pass -t or --token'))
   }
   download(styleUrl, accessToken, outDir, argv, onError)

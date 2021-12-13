@@ -23,6 +23,7 @@
   "dependencies": {
     "@mapbox/tilejson": "^1.1.0",
     "@mapbox/tilelive": "^6.0.0",
+    "agentkeepalive": "^4.1.4",
     "asar": "^0.14.6",
     "d3-queue": "^3.0.7",
     "debug": "^3.2.6",
