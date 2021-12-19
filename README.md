@@ -1,9 +1,9 @@
-## mapbox-style-downloader
+## Dongju
 
-Download mapbox styles, tiles, glyphs, and sprites for offline use.
+Download mapbox vector tile specification based resources - styles, tiles, glyphs, and sprites for offline use.
 
 ```
-npm install -g mapbox-style-downloader
+npm install -g dongju
 ```
 
 ## Usage
