@@ -1,7 +1,7 @@
 ## Dongju
 
 Download mapbox vector tile specification based resources - styles, tiles, glyphs, and sprites for offline use.
-
+<!--
 ```
 npm install -g dongju
 ```
@@ -65,3 +65,4 @@ USAGE: mapbox-style <command> [options]
   help
     see this help text
 ```
+-->
