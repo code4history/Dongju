@@ -1,7 +1,7 @@
 ## Dongju
 
 Download mapbox vector tile specification based resources - styles, tiles, glyphs, and sprites for offline use.  
-Project name is named from [윤동주(Dongju Yun)](https://ko.wikipedia.org/wiki/%EC%9C%A4%EB%8F%99%EC%A3%BC), who wa Korean Poet in 19th century. 
+Project name is named from [윤동주(Dongju Yun)](https://ko.wikipedia.org/wiki/%EC%9C%A4%EB%8F%99%EC%A3%BC), who was Korean Poet in 19th century. 
 <!--
 ```
 npm install -g dongju
